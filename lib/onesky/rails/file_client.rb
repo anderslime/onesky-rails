@@ -33,7 +33,8 @@ NOTICE
 
         files = get_default_locale_files(string_path).map {|path| File.basename(path)}
 
-        @onesky_locales.each do |locale|
+        locales = Array(@onesky_locales) + Array(base_locale)
+        locales.each do |locale|
           puts "#{locale_dir(locale)}/"
           onesky_locale = locale.gsub('_', '-')
           files.each do |file|
